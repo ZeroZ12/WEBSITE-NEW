@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'avatar',
     ];
 
     /**
@@ -44,5 +46,25 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function movies()
+    {
+        return $this->hasMany(Movie::class);
+    }
+
+    public function comics()
+    {
+        return $this->hasMany(Comic::class);
+    }
+
+    public function ratings()
+    {
+        return $this->hasMany(Ratings::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comments::class);
     }
 }
