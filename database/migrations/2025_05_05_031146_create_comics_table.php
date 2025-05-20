@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('comics', function (Blueprint $table) {
             $table->id();
+            $table->boolean('is_hot')->default(false); // Truyện hot
+            $table->boolean('is_new')->default(false); // Truyện mới
             $table->string('title');
             $table->string('slug')->unique(); // Đường dẫn SEO (ví dụ: "ten-truyen-2023")
             $table->text('description');

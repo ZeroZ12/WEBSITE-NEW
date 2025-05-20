@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
+            $table->boolean('is_hot')->default(false); // Phim hot
+            $table->boolean('is_new')->default(false); // Phim mới
             $table->string('title');
             $table->string('slug')->unique(); // Đường dẫn SEO
             $table->text('description');
